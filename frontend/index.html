@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Student Management System</h1>
+        
+        <!-- Control Panel -->
+        <div class="control-panel">
+            <button onclick="showAddStudentForm()">Add New Student</button>
+            <div class="filter-section">
+                <input type="text" id="filterCountry" placeholder="Filter by Country">
+                <input type="number" id="filterAge" placeholder="Filter by Min Age">
+                <button onclick="filterStudents()">Filter</button>
+                <button onclick="fetchStudents()">Reset Filters</button>
+            </div>
+        </div>
+
+        <div id="studentList">
+            <!-- Student list will be populated here -->
+        </div>
+
+        <!-- Add Student Form -->
+        <div id="addStudentForm" class="modal" style="display:none;">
+            <div class="modal-content">
+                <h2>Add Student</h2>
+                <form id="addStudent" onsubmit="addStudent(event)">
+                    <input type="text" id="name" placeholder="Name" required>
+                    <input type="number" id="age" placeholder="Age" required>
+                    <input type="text" id="city" placeholder="City" required>
+                    <input type="text" id="country" placeholder="Country" required>
+                    <button type="submit">Submit</button>
+                    <button type="button" onclick="hideForm('addStudentForm')">Cancel</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Edit Student Form -->
+        <div id="editStudentForm" class="modal" style="display:none;">
+            <div class="modal-content">
+                <h2>Edit Student</h2>
+                <form id="editStudent" onsubmit="updateStudent(event)">
+                    <input type="hidden" id="editStudentId">
+                    <input type="text" id="editName" placeholder="Name" required>
+                    <input type="number" id="editAge" placeholder="Age" required>
+                    <input type="text" id="editCity" placeholder="City" required>
+                    <input type="text" id="editCountry" placeholder="Country" required>
+                    <button type="submit">Update</button>
+                    <button type="button" onclick="hideForm('editStudentForm')">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
